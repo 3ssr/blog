@@ -1,3 +1,5 @@
-# Headline
+# 简介
 
-> An awesome project.
+> 记录软件开发生涯
+
+记录日常随笔和面试所需知识
