@@ -18,7 +18,7 @@
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
   <script>
     var num = 0;
-    mermaid.initialize({ startOnLoad: false });       
+    mermaid.initialize({ startOnLoad: false });
     window.$docsify = {
       name: '',
       repo: '',
@@ -26,6 +26,7 @@
       alias: {
         '/.*/_sidebar.md': '/_sidebar.md'
       },
+      coverpage: true,
       markdown: {
         renderer: {
           code: function (code, lang) {
