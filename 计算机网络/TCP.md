@@ -57,6 +57,8 @@ TimeoutInterval(超时间隔) = EstimatedRTT + 4*DevRTT
 对于接收方，RecvWindow = RecvBuffer - [LastByteRecv - LastByteRead]
 对于发送方，LastByteSent - LastByteAcked <= RecvWindow
 
+在 TCP 协议中，接收端的窗口的起始点是下一个要接收并且 ACK 的包，即便后来的包都到 了，放在缓存里面，窗口也不能右移，因为 TCP 的 ACK 机制是基于序列号的累计应答，一旦 ACK 了一 个系列号，就说明前面的都到了，所以只要前面的没到，后面的到了也不能 ACK，就会导致后面的到 了，也有可能超时重传，浪费带宽。
+
 - 空闲通知
 
 接收方的缓存区从满到有空闲时，需要在ACK里告诉发送方
