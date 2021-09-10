@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.css">
   <link rel="stylesheet" href="https://unpkg.com/docsify-toc@1.0.0/dist/toc.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css" />
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-changelog-plugin@latest/dist/style.css" />
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
   <style>
     .sidebar-nav li {
       margin: 12px 16px;
@@ -24,15 +26,21 @@
     .emoji {
       margin-right: 6px;
     }
+
+    .pagination-item-title {
+      margin-top: 12px;
+    }
   </style>
 </head>
 
 <body>
-  <div id="app"></div>
+  <div id="app">
+    Please wait... 🧐
+  </div>
   <!-- Docsify v4 -->
-  <script src="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
-
+  <script src="//cdn.jsdelivr.net/npm/docsify-edit-on-github"></script>
+  <script src="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
   <script>
     var num = 0;
     mermaid.initialize({ startOnLoad: false });
@@ -45,6 +53,7 @@
       alias: {
         '/.*/_sidebar.md': '/_sidebar.md'
       },
+      loadFooter: true,
       depth: 2,
       coverpage: true,
       markdown: {
@@ -71,14 +80,37 @@
           hook.doneEach(function () {
             twemoji.parse(document);
           })
-        }
-      ]
+        },
+        // EditOnGithubPlugin.create(
+        //   'https://github.com/3ssr/blog/blob/master/',
+        //   null,
+        //   function (file) {
+        //     return 'Edit on github'
+        //   }
+        // )
+      ],
+      pagination: {
+        previousText: '上一篇',
+        nextText: '下一篇',
+        crossChapter: true,
+        crossChapterText: true,
+      },
+      copyCode: {
+        buttonText: 'Copy to clipboard',
+        errorText: 'Error',
+        successText: 'Copied'
+      },
     }
   </script>
   <script src="https://unpkg.com/docsify-toc@1.0.0/dist/toc.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/TaQini/docsify-twemoji@master/twemoji.min.js"></script>
+  <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <!-- <script src="https://unpkg.com/docsify-copy-code@2.1.1"></script> -->
+  <script src="//cdn.jsdelivr.net/npm/@alertbox/docsify-footer/dist/docsify-footer.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/prism/1.24.1/components/prism-go.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/prism/1.24.1/components/prism-sql.min.js"></script>
 </body>
 
 </html>
