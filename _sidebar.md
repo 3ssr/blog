@@ -70,6 +70,7 @@
     - [Docker](容器知识/Docker.md)
     - [Kubernetes]()
     - [Prometheus]()
+    - [Prometheus-Operator](容器知识/Prometheus-Operator.md)
 - [🖇️ 常用中间件]()
     - [Redis](常用中间件/Redis.md)
     - [Kafka](常用中间件/Kafka.md)
